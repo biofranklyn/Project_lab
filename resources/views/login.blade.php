@@ -1,12 +1,12 @@
 @extends('layout/header')
 
 @section('Style') 
-    {{-- disini untuk bikin css --}}
+    
     
     <style>
        
     </style>
-    @section('containers') {{-- ini buat nyambungin header ga perlu di ganti --}}
+    @section('containers') 
     
     <div style="background-color: #FF99CC; width: 100%; height:788px;">
         <div style="width: 90%; height:680px; margin-left:auto; margin-right:auto;">
@@ -39,6 +39,6 @@
         </div>
     </div>
             
-    @endsection {{-- ini buat bikin halamannya --}}
-@endsection     {{-- ini untuk bikin css --}}
+    @endsection 
+@endsection     
 

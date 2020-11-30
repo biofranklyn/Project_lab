@@ -23,86 +23,100 @@
 
        .FS{
            display: block;
-           margin: 0 0 5px;
+           margin: 0 0 10px;
 
         }
         .navbar-nav{
             display: flex;
             flex-direction: row;
         }
-        .kembali{
-            margin-right: 5px;
+        .login{
+            margin-right: 20px;
+            margin-top: 8px;
         }
-        .kembali>a{
+        .login>a{
             color:#000000;
             text-decoration: none;
             display: flex;
             justify-content: left;
         }
-        .kembali:hover{
+        .login:hover{
             cursor: pointer;
-            background-color: aquamarine;
+            background-color: aqua;
             color: black;
             display: flex;
             justify-content: left;
         }
 
-        .semuamovies{
-            display: flex;
-            justify-content: left;
+        .register{
+            color:#000000;
+            margin-top: 8px;
         }
 
-        .semuamovies:hover{
+        .register>a{
+            color:#000000;
+            text-decoration: none;
+        }
+
+        .register:hover{
             cursor: pointer;
-            background-color: green;
-            color: white;
-            display: flex;
-            justify-content: left;
+            background-color: aqua;
+            color: rgb(0, 0, 0);
+
+        }   
+        .dropdown{
+            margin-right: 20px;
         }
-       
-        .btn{
-            color: #000000;
-            
+
+        .dropdown>a{
+            color:#000000;
+            text-decoration: none;
         }
-        .btn1{
-            color: #000000;
-            display: flex;
-            justify-content: left;
-        }
+        .dropdown:hover{
+            cursor: pointer;
+            background-color: aqua;
+            color: rgb(0, 0, 0);
+
+        }  
+
+      #navigasi ul{height: 40px;}
+      #navigasi ul ul{position:absolute;padding: 0px;border:none;}
+      #navigasi ul li:hover ul{display:block;}
     </style>
     @yield('style')
 </head>
 
 <body>
-    <nav class="navbar">
+    <nav class="navbar" id="navigasi">
         <h1 class="FS" style="font-size: 16px">Flowelto Shop</h1>
         <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Hand Bucket</a>
+                  <a class="dropdown-item" href="#">Weding Bucket</a>
+                  <a class="dropdown-item" href="#">Gift Bucket</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Home</a>
+                </div>
+            </li>
             <li>
-                <div class="kembali">
-                    <a href="javascript:history.back()">
+                <div class="login">
+                    <a href="/login">
                     <span>
-                        <span style="font-size: 14px">
-                            &#11013;
-                        </span>KEMBALI</span>
+                        <span style="font-size: 14px">   
+                        </span>Login</span>
                     </a>
                 </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
             <li>
-                <div class="semuamovies ml-0">
-                    <span><a href="/" class="btn1">LIHAT SEMUA FILM</a></span>
+                <div class="register ml-0">
+                    <span><a href="/register" class="register">Register</a></span>
                 </div>
             </li>
+
         </ul>
     </nav>
     @yield('containers')
