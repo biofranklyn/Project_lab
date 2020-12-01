@@ -1,8 +1,6 @@
 @extends('layout/header')
 
-@section('Style') 
-    
-    
+@section('style') 
     <style>
        
     </style>

@@ -116,7 +116,6 @@
                     <span><a href="/register" class="register">Register</a></span>
                 </div>
             </li>
-
         </ul>
     </nav>
     @yield('containers')
