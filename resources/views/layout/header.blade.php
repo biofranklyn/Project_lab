@@ -106,7 +106,7 @@
 </head>
 
 <body>
-    <nav class="navbar" id="navigasi">
+    <nav class="navbar" id="navigasi" >
         <div class="flowelto">
             <a href="/">
             <h1 class="FS" style="font-size: 16px">Flowelto Shop</h1>

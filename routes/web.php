@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'MainController@muncul_homepage');
-
 Route::get('/register',function() {
     return view('register');
 });
@@ -23,17 +21,10 @@ Route::get('/login',function(){
     return view('login');
 });
 
-Route::get('/catalog',function(){
-    return view('catalog');
-});
-
 Route::get('/add',function(){
     return view('addFlower');
 });
 
-// Route::get('/flower',function(){
-//     return view('flower');
-// });
-
-Route::get('/flower', 'MainController@muncul_flower');
+Route::get('/', 'MainController@muncul_homepage');
+Route::get('/flower/{id}', 'MainController@muncul_flower');
 Route::post('/add/flower', 'MainController@tambah_flower');

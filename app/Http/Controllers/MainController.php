@@ -18,8 +18,8 @@ class MainController extends Controller
         return view('homepage',['category'=>$category]);
     }
 
-    public function muncul_flower(){
-        $flower = flowers::all();
+    public function muncul_flower($id){
+        $flower = flowers::where('Category_id',$id)->get();
 
         return view ('flower',['flowers'=>$flower]);
     }
