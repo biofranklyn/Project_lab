@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+
 class MainController extends Controller
 {
     //
@@ -17,11 +18,17 @@ class MainController extends Controller
         return view('homepage',['category'=>$category]);
     }
 
+    public function muncul_flower(){
+        $flower = flowers::all();
+
+        return view ('flower',['flowers'=>$flower]);
+    }
+
     public function tambah_flower(Request $request){
         $validator = Validator::make($request->all(), [
             'category'=>'required',
             'Flowers_Name' => 'required|unique:flowers|min:5',
-            'flowerprice' => 'required|numeric|max:50000',
+            'flowerprice' => 'required|numeric|min:50000',
             'description' => 'required|min:20',
             'flowerimage' => 'required|'
         ]);

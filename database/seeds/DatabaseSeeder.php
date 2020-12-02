@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Providers\RouteServiceProvider;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       $this->call(category::class);
+        Route::prefix('seeds')
+        ->middleware('seeds')
+        ->namespace('Database\Seeds') // <---------
+        ->group(base_path('Database\seeds\Category.php'));
+       $this->call(Category::class);
     }
 }

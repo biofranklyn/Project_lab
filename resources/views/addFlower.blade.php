@@ -15,6 +15,17 @@
                         <div class="container text-center pt-3">
                             <h3> Add New Flower </h3>
                         </div>
+                        @if ($errors->any())
+                            <div class="row">
+                              <div class="col danger text-danger">
+                                <ul>
+                                  @foreach ($errors->all() as $erroanying)
+                                      <li>{{$erroanying}}</li>
+                                  @endforeach
+                                </ul>
+                              </div>
+                            </div>
+                        @endif
                         <div class="form-group row">
                         <label for="category" class="col-sm-2 col-form-label">Category</label>
                             <select name="category" id="category" style="margin-left: 15px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" required>
@@ -45,11 +56,11 @@
                           <div class="form-group row"></div>
                             <div class="form-group row">
                               <label for="img">Flower Image</label>
-                              <div class="col-sm-10" style="margin-left: 76px">
+                              <div class="col-sm-10" style="margin-left: 55px">
                                 <input type="file" class="form-control-file" id="img" name="flowerimage">
                               </div>
                             </div>
-                            <div class="col-sm-10" style="margin-left: 158px">
+                            <div class="col-sm-10" style="margin-left: 140px">
                                 <input type="submit" class="btn btn-primary" value="Add Flower">
                             </div>
                             </form>
