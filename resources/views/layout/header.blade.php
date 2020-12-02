@@ -37,6 +37,17 @@
             display: flex;
             flex-direction: row;
         }
+        .flowelto{
+            color: #000000;
+        }
+        .flowelto>a{
+            color: #000000;
+            text-decoration: none;
+        }
+        .flowelto:hover{
+            color: #000000;
+            cursor: pointer;
+        }
         .login{
             margin-right: 20px;
             margin-top: 8px;
@@ -95,10 +106,12 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <a href="/">
+    <nav class="navbar" id="navigasi">
+        <div class="flowelto">
+            <a href="/">
             <h1 class="FS" style="font-size: 16px">Flowelto Shop</h1>
-        </a>
+            </a>
+        </div>
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
