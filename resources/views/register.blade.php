@@ -1,16 +1,25 @@
 @extends('layout/header')
 
-@section('Style') 
+@section('style') 
     
     <style>
         
-            
-        
+             .background{
+              background-color: #FF99CC; 
+              width: 100%; 
+              height:788px;
+             }
+             .bg{
+              width: 90%; 
+              height:680px; 
+              margin-left:auto;
+              margin-right:auto;
+             }
     </style>
     @section('containers') 
     
-    <div style="background-color: #FF99CC; width: 100%; height:788px;">
-        <div style="width: 90%; height:680px; margin-left:auto; margin-right:auto;">
+    <div class="background">
+        <div class="bg">
         <form>
             <div class="container text-center pt-3">
                 <h3> Register </h3>

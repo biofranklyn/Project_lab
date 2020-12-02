@@ -26,6 +26,13 @@
            margin: 0 0 10px;
 
         }
+        a>.FS{
+            color:#000000;
+            text-decoration: none;
+        }
+        a{
+            text-decoration: none;
+        }
         .navbar-nav{
             display: flex;
             flex-direction: row;
@@ -51,6 +58,7 @@
         .register{
             color:#000000;
             margin-top: 8px;
+            margin-right: 10px;
         }
 
         .register>a{
@@ -78,26 +86,29 @@
             color: rgb(0, 0, 0);
 
         }  
-
-      #navigasi ul{height: 40px;}
-      #navigasi ul ul{position:absolute;padding: 0px;border:none;}
-      #navigasi ul li:hover ul{display:block;}
+        .date{
+            margin-top: 8px;
+            color: #000000
+        }
     </style>
     @yield('style')
 </head>
 
 <body>
-    <nav class="navbar" id="navigasi">
-        <h1 class="FS" style="font-size: 16px">Flowelto Shop</h1>
+    <nav class="navbar">
+        <a href="/">
+            <h1 class="FS" style="font-size: 16px">Flowelto Shop</h1>
+        </a>
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Categories
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Hand Bucket</a>
-                  <a class="dropdown-item" href="#">Weding Bucket</a>
-                  <a class="dropdown-item" href="#">Gift Bucket</a>
+                <div class="dropdown-menu" style="position: absolute;" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Blossom box</a>
+                  <a class="dropdown-item" href="#">Bouquet</a>
+                  <a class="dropdown-item" href="#">Fresh flower</a>
+                  <a class="dropdown-item" href="#">Vase</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">Home</a>
                 </div>
@@ -114,6 +125,11 @@
             <li>
                 <div class="register ml-0">
                     <span><a href="/register" class="register">Register</a></span>
+                </div>
+            </li>
+            <li>
+                <div class="date ml-0">
+                    <span>Buat tanggal</span>
                 </div>
             </li>
         </ul>

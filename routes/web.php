@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', 'MainController@muncul_homepage');
 
 Route::get('/register',function() {
     return view('register');
@@ -24,3 +22,13 @@ Route::get('/register',function() {
 Route::get('/login',function(){
     return view('login');
 });
+
+Route::get('/catalog',function(){
+    return view('catalog');
+});
+
+Route::get('/add',function(){
+    return view('addFlower');
+});
+
+Route::post('/add/flower', 'MainController@tambah_flower');
