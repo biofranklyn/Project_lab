@@ -21,7 +21,11 @@ class MainController extends Controller
     public function muncul_flower($id){
         $flower = flowers::where('Category_id',$id)->get();
 
-        return view ('flower',['flowers'=>$flower]);
+        return view ('flower',  ['flowers'=>$flower]);
+    }
+
+    public function muncul_detail($id){
+        $flower = flowers::where('id', $id )->first();
     }
 
     public function tambah_flower(Request $request){

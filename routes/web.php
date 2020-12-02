@@ -25,6 +25,8 @@ Route::get('/add',function(){
     return view('addFlower');
 });
 
+Route::get('/detail/{id}','MainController@muncul_detail');
+
 Route::get('/', 'MainController@muncul_homepage');
 Route::get('/flower/{id}', 'MainController@muncul_flower');
 Route::post('/add/flower', 'MainController@tambah_flower');

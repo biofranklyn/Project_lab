@@ -27,7 +27,7 @@
             <div class="form-group row">
                 <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputUsername" required>
+                  <input type="text" class="form-control" id="inputUsername" minlength="5" required>
                 </div>
               </div>
             <div class="form-group row">
@@ -39,7 +39,7 @@
             <div class="form-group row">
               <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
               <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" required>
+                <input type="password" class="form-control" id="inputPassword3" minlength="8"  required>
               </div>
             </div>
             <div class="form-group row">
@@ -76,7 +76,7 @@
               <div class="form-group row">
                 <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputAddress" required>
+                  <input type="text" class="form-control" id="inputAddress" minlength="10" required>
                 </div>
               </div>
                 <div style="margin-left:247px;">
