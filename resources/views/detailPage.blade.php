@@ -12,9 +12,6 @@
             font-size: 24px;
             font-style: italic;
         }
-        .content2{
-            background-color: #fca3cc;
-        }
         .img{
             max-width: 220px;
         }
@@ -26,24 +23,16 @@
     </style>
     @section('containers')
         <div class="containers">
-            <div>
-                <div>
-                    @foreach ($flowers as $flowerempat)
-                    <div class="row mt-2 mx-5 d-flex justify-content-center">
-                        @foreach ($flowerempat as $flowersatuan)
-                            <div class="col-2 content2 py-2 px-0 mx-1 text-center ">
-                                <a href="/detail/{{$categorysatuan->id}}">
-                                        <img class="img" src="{{asset('asset/'.$flowersatuan->Flowers_Image ) }}" alt="{{$flowersatuan->Flowers_Image }}">
-                                        <p class="text mt-3">{{$flowersatuan->Flowers_Name}}</p>
-                                        <p class="text mt-n2">{{$flowersatuan->Flowers_Price}}</p>
-                                <p class="text">{{$flowersatuan->description}}</p>
-                                 </a>
+                    <div class="row mt-2 mx-auto d-flex justify-content-center">
+                            <div class="col-4 py-2 px-0 text-center ">
+                                        <img class="img" src="{{asset('asset/'.$flowers->Flowers_Image ) }}" alt="{{$flowers->Flowers_Image }}">
                             </div>
-                        @endforeach
-                    </div>    
-                @endforeach
-                </div>
-            </div>
+                            <div class="col-3 py-2 px-0 text-center ">
+                                <p class="text mt-3">{{$flowers->Flowers_Name}}</p>
+                                <p class="text mt-n2">Rp. {{$flowers->Flowers_Price}}</p>
+                                <p class="text">{{$flowers->description}}</p>
+                            </div>
+                    </div>
     @endsection 
 @endsection     
 

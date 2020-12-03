@@ -41,7 +41,6 @@
                                         <p class="text mt-3">{{$flowersatuan->Flowers_Name}}</p>
                                         <p class="text mt-n2">{{$flowersatuan->Flowers_Price}}</p>
                                  </a>
-
                             </div>
                         @endforeach
                     </div>    

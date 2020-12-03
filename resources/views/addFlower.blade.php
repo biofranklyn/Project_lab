@@ -19,8 +19,8 @@
                             <div class="row">
                               <div class="col danger text-danger">
                                 <ul>
-                                  @foreach ($errors->all() as $erroanying)
-                                      <li>{{$erroanying}}</li>
+                                  @foreach ($errors->all() as $err)
+                                      <li>{{$err}}</li>
                                   @endforeach
                                 </ul>
                               </div>
