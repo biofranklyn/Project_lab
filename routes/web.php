@@ -49,7 +49,11 @@ Route::get('/changepw',function(){
     return view('changePassword');
 });
 
-Route::get('/updatecategory','MainController@atur_categori');
+Route::get('/updatecat',function(){
+    return view('updateCategory');
+});
+
+Route::get('/managecategory','MainController@atur_categori');
 Route::get('/update/{id}','MainController@muncul_update');
 Route::get('/detail/{id}','MainController@muncul_detail');
 Route::get('/','MainController@muncul_homepage');
