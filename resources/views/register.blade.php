@@ -5,7 +5,7 @@
     <style>
         
              .background{
-              background-color: #FF99CC; 
+              background-color: #fdcfdf; 
               width: 100%; 
               height:788px;
              }
@@ -81,7 +81,7 @@
               </div>
                 <div style="margin-left:247px;">
                     <div class="col-sm-10">
-                        <button type="submit" class="button">Register</button>
+                      <button type="submit" class="btn btn-primary">Register</button>
                     </div>
                 </form>
             </div>

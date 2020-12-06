@@ -47,6 +47,7 @@
                 @endforeach
                 </div>
             </div>
+        </div>
     @endsection 
 @endsection     
 

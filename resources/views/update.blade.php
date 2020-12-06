@@ -88,7 +88,7 @@
                                   </div>
                                   <div class="col-sm-10">
                                     <input type="hidden" name="id" value="{{$flowers->id}}">
-                                    <input type="submit" class="btn btn-primary" value="Add Flower">
+                                    <input type="submit" class="btn btn-primary" value="Update Flower">
                                 </div>
                                 </div>
                               </div>

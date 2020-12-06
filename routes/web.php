@@ -25,8 +25,31 @@ Route::get('/add',function(){
     return view('addFlower');
 });
 
-Route::get('/updatecategory','MainController@atur_categori');
+Route::get('/viewManager',function(){
+    return view('flowerManager');
+});
 
+Route::get('/detailCust',function(){
+    return view('detailPageCustomer');
+});
+
+Route::get('/cart',function(){
+    return view('cart');
+});
+
+Route::get('/transaction',function(){
+    return view('transactionHistory');
+});
+
+Route::get('/transactionDetail',function(){
+    return view('transactionDetail');
+});
+
+Route::get('/changepw',function(){
+    return view('changePassword');
+});
+
+Route::get('/updatecategory','MainController@atur_categori');
 Route::get('/update/{id}','MainController@muncul_update');
 Route::get('/detail/{id}','MainController@muncul_detail');
 Route::get('/','MainController@muncul_homepage');

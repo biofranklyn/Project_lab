@@ -56,11 +56,11 @@
                           <div class="form-group row"></div>
                             <div class="form-group row">
                               <label for="img">Flower Image</label>
-                              <div class="col-sm-10" style="margin-left: 55px">
+                              <div class="col-sm-10" style="margin-left: 76px">
                                 <input type="file" class="form-control-file" id="img" name="flowerimage">
                               </div>
                             </div>
-                            <div class="col-sm-10" style="margin-left: 140px">
+                            <div class="col-sm-10" style="margin-left: 157px">
                                 <input type="submit" class="btn btn-primary" value="Add Flower">
                             </div>
                             </form>

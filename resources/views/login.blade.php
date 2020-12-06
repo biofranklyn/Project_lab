@@ -6,7 +6,7 @@
     </style>
     @section('containers') 
     
-    <div style="background-color: #FF99CC; width: 100%; height:788px;">
+    <div style="background-color: #fdcfdf; width: 100%; height:788px;">
         <div style="width: 90%; height:680px; margin-left:auto; margin-right:auto;">
             <div class="container text-center pt-3">
                 <h3> Login </h3>
