@@ -31,13 +31,13 @@
                             <div class="form-group row">
                                 <label for="CatName" class="float-left col-form-label">Category Name</label>
                                 <div class="col-sm-6">
-                                  <input type="text" class="form-control" id="CatName" name="Cat_Name" required value="Blossom Box">
+                                  <input type="text" class="form-control" id="CatName" name="Category Name" required value="Blossom Box">
                                 </div>
                               </div>
                               <div class="form-group row">
                               <label for="img" class="float-left col-form-label">Category Image</label>
                               <div class="col-sm-10">
-                                <input type="file" class="form-control-file" id="img" name="categoryimage">
+                                <input type="file" class="form-control-file" id="img" name="category image">
                               </div>
                             </div>
                                 <input type="submit" class="btn btn-primary" style="margin-left: 16.5%" value="Update">
