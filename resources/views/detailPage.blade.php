@@ -1,6 +1,6 @@
 @extends('layout/header')
 
-@section('style') 
+@section('Style') 
     <style>
         body{
             background-color: #fdcfdf;
