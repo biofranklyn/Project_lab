@@ -32,7 +32,6 @@
     </style>
     @section('containers')
         <div class="containers">
-            {{-- manage category --}}
             <div>
                 <div>
                     <div class="tulisan text-center">

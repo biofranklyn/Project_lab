@@ -25,38 +25,25 @@ Route::get('/add',function(){
     return view('addFlower');
 });
 
-Route::get('/viewManager',function(){
-    return view('flowerManager');
-});
-
-Route::get('/detailCust',function(){
-    return view('detailPageCustomer');
-});
-
-Route::get('/cart',function(){
-    return view('cart');
-});
-
 Route::get('/transaction',function(){
     return view('transactionHistory');
-});
-
-Route::get('/transactionDetail',function(){
-    return view('transactionDetail');
 });
 
 Route::get('/changepw',function(){
     return view('changePassword');
 });
 
-Route::get('/updatecat',function(){
-    return view('updateCategory');
-});
+Route::get('/updatecategory/{id}','MainController@UpdateCategory');
+Route::post('/updateCategory/homepage', 'MainController@tambah_update_category');
 
+Route::get('/transactionDetail/{id}','MainController@muncul_td');
+Route::get('/detailCust/{id}','MainController@muncul_detail_cust');
+Route::get('/cart/{id}','MainController@muncul_cart');
+Route::get('/viewManager/{id}','MainController@muncul_flower_update');
 Route::get('/managecategory','MainController@atur_categori');
 Route::get('/update/{id}','MainController@muncul_update');
 Route::get('/detail/{id}','MainController@muncul_detail');
 Route::get('/','MainController@muncul_homepage');
 Route::get('/flower/{id}', 'MainController@muncul_flower');
 Route::post('/add/flower', 'MainController@tambah_flower');
-Route::post('/update/flower', 'MainController@tambah_update_category');
+Route::post('/update/flower', 'MainController@tambah_update_flower');

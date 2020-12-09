@@ -15,6 +15,7 @@ class CreateShopingcartTable extends Migration
     {
         Schema::create('shopingcart', function (Blueprint $table) {
             $table->id();
+            $table->string('User_id');
             $table->string('Flowers_Name');
             $table->string('Subtotal');
             $table->string('Quantity');

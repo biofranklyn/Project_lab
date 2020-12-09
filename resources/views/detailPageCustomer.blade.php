@@ -19,23 +19,30 @@
         a{
             color: black;
         }
+        .tombol{
+            font-size: 11px; 
+            margin-left: 115px;
+        }
 
     </style>
     @section('containers')
         <div class="containers">
-                    <div class="row mt-2 mx-auto d-flex justify-content-center">
-                            <div class="col-4 py-2 px-0 text-center ">
-                                        <img class="img" src="{{asset('asset/freshflower/bunga bangke.jpeg') }}" alt="bunga bangke.jpeg">
-                            </div>
-                            <div class="col-3 py-2 px-0 text-left ">
-                                <h1 class="text mt-3">bunga bangke</h1> <br>
-                                <strong class="text mt-n2" style="color: #f0a500">Rp. 200000000</strong>
-                                <p class="text">bunga bangke bau bat dah pokoknya</p>
-                                <label for="qty">Quantity</label>
-                                <input type="number" name="qty" style="border: none; border-radius: 2px; padding: 5px; width: 80px; margin-left: 50px"> <br>
-                                <input class="tombol btn btn-primary py-2 mt-2" type="submit" value="Add to Cart" style="font-size: 11px; margin-left: 115px">
-                            </div>
-                    </div>
+            <div class="row mt-2 mx-auto d-flex justify-content-center">
+                <div class="col-4 py-2 px-0 text-center ">
+                    <img class="img" width='220px' src="{{asset('asset/'.$flowers->Flowers_Image ) }}" alt="{{$flowers->Flowers_Image }}">
+                </div>
+                <div class="col-3 py-2 px-0 text-center ">
+                    <p class="text mt-3">{{$flowers->Flowers_Name}}</p>
+                    <p class="text mt-n2" style="color: #f0a500">Rp. {{$flowers->Flowers_Price}}</p>
+                    <p class="text">{{$flowers->description}}</p>
+                    <label for="qty">Quantity</label>
+                    <input class="tombol1" type="number" name="qty" style="border: none; border-radius: 2px; padding: 5px; width: 80px; margin-left: 50px"> <br>
+                    <input class="tombol btn btn-primary py-2 mt-2" type="submit" value="Add to Cart">
+                </div>
+                <div>
+                    
+                </div>
+            </div>
     @endsection 
 @endsection     
 

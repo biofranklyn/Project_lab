@@ -31,15 +31,16 @@
                         <h1>My Cart</h1>
                     </div>
                     <div class="mt-5 mx-5 d-flex justify-content-center flex-colums">
+                        @foreach ($flowers as $flower)
                             <div class="content2 px-4 py-2">
                                 <div class="side col-2">
-                                    <img class="img" src="{{asset('asset/freshflower/bunga bangke.jpeg' ) }}" alt="bunga bangke.jpeg">
+                                    <img class="img" src="{{asset('asset/'.$flower->Flowers_Image ) }}" alt="{{$flower->Flowers_Image }}">
                                 </div>
                                 <div class="side col-2" style="margin-left: 100px">
-                                    <p class="text mt-3">Bunga Bangke</p>
+                                    <p class="text mt-3">{{$flower->Flowers_Name}}</p>
                                 </div>
                                 <div class="side col-2">
-                                    <p class="text mt-n2">Rp. 200000000</p>
+                                    <p class="text mt-n2" style="color: #f0a500">Rp.{{$flower->Subtotal}}</p>
                                 </div>
                                 <div class="side col-1">
                                     <label for="qty">Quantity</label>
@@ -49,6 +50,7 @@
                                     <input class="tombol btn btn-primary py-2 mt-2" type="submit" value="Update" style="font-size: 14px; margin-bottom: 10px; margin-left: 20px">
                                 </div>
                             </div>
+                        @endforeach
                     </div>
                     <div class="button mt-3">
                         <input type="submit" class="btn btn-danger" value="Checkout"> 

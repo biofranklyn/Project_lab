@@ -34,9 +34,14 @@
                                     </thead>
                                     <tbody>
                                       <tr>
-                                        <th scope="row"><img class="img" src="{{asset('asset/freshflower/bunga bangke.jpeg' ) }}" alt="bunga bangke.jpeg"></th>
-                                        <td><strong>Bunga Bangke</strong></td>
-                                        <td>Rp. 200000000</td>
+                                        <th scope="row">
+                                          <img class="img" src="{{asset('asset/'.$flowers->Flowers_Image ) }}" alt="{{$flowers->Flowers_Image }}">
+                                        </th>
+                                        <td>
+                                          <p class="text mt-3">{{$flowers->Flowers_Name}}</p>
+                                        </td>
+                                        <td><p class="text mt-n2" style="color: #f0a500">Rp.{{$flowers->Flowers_Price}}</p>
+                                        </td>
                                         <td>2</td>
                                       </tr>
                                     </tbody>

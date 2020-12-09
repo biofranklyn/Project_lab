@@ -8,7 +8,9 @@
         .content2{
             background-color: #fca3cc;
         }
-
+        .img{
+            max-width: 220px;
+        }
     </style>
     @section('containers')
         <div class="containers">
@@ -23,25 +25,19 @@
                             <input type="search" placeholder="Search" style="border: none; padding: 9px 20px; border-radius: 5px">
                             <button type="submit" style="padding: 9px 13px; border: none; border-radius: 5px; background-color: #3d7ea6; color: white; margin-left: 15px">Search</button>
                         </div>
-                        {{--ini gue gatau gabisa-bisa buat ngebikin fotonya jadi sejajar, pake inline-block nga bisa soalnya, ntar lo pake chunk aja di foreach--}}
-                            <div class="row  mt-5 mx-5 d-flex justify-content-center" style="display: inline-block">
-                                <div class="col-2 content2 py-2 px-0 mx-1 text-center ">
-                                    <img src="{!! asset('asset/Bouquet/FlowerBouquet.jpg'); !!}" alt="FlowerBouquet.jpg" style="max-width: 200px;">
-                                    <p>Bunga baket putih</p>
-                                    <p>Rp50.000,00</p>
-                                    <input class="btn btn-danger" type="submit" value="Delete Flower" style="font-size: 11px">
-                                    <input class="tombol btn btn-primary" type="submit" value="Update Flower" style="font-size: 11px">
+                        @foreach ($flowers->chunk(4) as $flowerempat)
+                        <div class="row mt-2 mx-5 d-flex justify-content-center">
+                            @foreach ($flowerempat as $flowersatuan)
+                                <div class="col-2 content2 py-1n px-0 mx-1 text-center ">
+                                    <img class="img" src="{{asset('asset/'.$flowersatuan->Flowers_Image ) }}" alt="{{$flowersatuan->Flowers_Image }}">
+                                    <p class="text mt-3">{{$flowersatuan->Flowers_Name}}</p>
+                                    <p class="text mt-n2">Rp.{{$flowersatuan->Flowers_Price}}</p>
+                                    <input class="btn btn-primary" type="submit" value="Delete Category" style="font-size: 11px">
+                                    <input class="tombol btn btn-primary" type="submit" value="Update Category" style="font-size: 11px">
                                 </div>
-                            </div>
-                            <div class="row  mt-5 mx-5 d-flex justify-content-center" style="display: inline-block">
-                                <div class="col-2 content2 py-2 px-0 mx-1 text-center ">
-                                    <img src="{!! asset('asset/Bouquet/FlowerBouquet2.jpg'); !!}" alt="FlowerBouquet2.jpg" style="max-width: 200px;">
-                                    <p>Bunga baket pink</p>
-                                    <p>Rp100.000,00</p>
-                                    <input class="btn btn-danger" type="submit" value="Delete Flower" style="font-size: 11px">
-                                    <input class="tombol btn btn-primary" type="submit" value="Update Flower" style="font-size: 11px">
-                                </div>
-                            </div>
+                            @endforeach
+                        </div>    
+                    @endforeach
                 </div>
         </div>
     @endsection 

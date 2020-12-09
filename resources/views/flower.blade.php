@@ -29,9 +29,20 @@
             <div>
                 <div>
                     <div class="tulisan text-center">
-                        <p style="font-style: italic; font-size: 150%;">Welcome to Flowelto Shop</p>
-                        <h5>The Best Flower Shop in Binus Univeristy</h5>
+                        <h1 class="text mt-3">
+                            {{$category->CategoryName}}
+                        </h1>
                     </div>
+                    <div style="margin-top: 20px">
+                        <label for="category" class="col-sm-2 col-form-label"></label>
+                        <select name="category" id="category" style="margin-left: 15px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; padding: 10px 20px; border: none; border-radius: 5px" required>
+                            <option value="Blossom Box" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"> Name</option>
+                            <option value="Bouquet" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Price</option>
+                        </select>
+                        <input type="search" placeholder="Search" style="border: none; padding: 9px 20px; border-radius: 5px">
+                        <button type="submit" style="padding: 9px 13px; border: none; border-radius: 5px; background-color: #3d7ea6; color: white; margin-left: 15px">Search</button>
+                    </div>
+                    @if (count($flowers) > 0 )
                     @foreach ($flowers->chunk(4) as $flowerempat)
                     <div class="row mt-2 mx-5 d-flex justify-content-center">
                         @foreach ($flowerempat as $flowersatuan)
@@ -39,12 +50,19 @@
                                 <a href="/detail/{{$flowersatuan->id}}">
                                         <img class="img" src="{{asset('asset/'.$flowersatuan->Flowers_Image ) }}" alt="{{$flowersatuan->Flowers_Image }}">
                                         <p class="text mt-3">{{$flowersatuan->Flowers_Name}}</p>
-                                        <p class="text mt-n2">{{$flowersatuan->Flowers_Price}}</p>
+                                        <p class="text mt-n2" style="color: #f0a500">Rp.{{$flowersatuan->Flowers_Price}}</p>
                                  </a>
                             </div>
                         @endforeach
                     </div>    
                 @endforeach
+                @else
+                <div class="row mt-5 mx-5 d-flex justify-content-center">
+                    <h1>
+                        No flower
+                    </h1>
+                </div>
+                @endif
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\category;
 use App\flowers;
+use App\shoping;    
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -19,12 +20,38 @@ class MainController extends Controller
 
     public function muncul_flower($id){
         $flower = flowers::where('Category_id',$id)->get();
-        return view ('flower',  ['flowers'=>$flower]);
+        $category=category::where('id',$id)->first();
+        return view ('flower',  ['flowers'=>$flower, 'category'=>$category]);
+    }
+
+    public function UpdateCategory($id){
+        $category=category::where('id',$id)->first();
+        return view('updateCategory',['category'=>$category]);
+    }
+
+    public function muncul_cart(){
+        $flower = shoping::all();
+        return view ('cart',  ['flowers'=>$flower]);
+    }
+
+    public function muncul_flower_update($id){
+        $flower = flowers::where('Category_id',$id)->get();
+        return view ('flowerManager',  ['flowers'=>$flower]);
     }
 
     public function muncul_detail($id){
         $flower = flowers::where('id', $id )->first();
         return view ('detailPage', ['flowers'=>$flower]);
+    }
+
+    public function muncul_detail_cust($id){
+        $flower = flowers::where('id', $id )->first();
+        return view ('detailPageCustomer', ['flowers'=>$flower]);
+    }
+
+    public function muncul_td($id){
+        $flower = flowers::where('id', $id )->first();
+        return view ('transactionDetail', ['flowers'=>$flower]);
     }
 
     public function atur_categori(){
@@ -61,7 +88,7 @@ class MainController extends Controller
         return redirect('/')->with(['category'=>$category]);
     }
 
-    public function tambah_update_category(Request $request){
+    public function tambah_update_flower(Request $request){
         $validator = Validator::make($request->all(), [
             'category'=>'required',
             'Flowers_Name' => 'required|unique:flowers|min:5',
@@ -79,6 +106,30 @@ class MainController extends Controller
         $category_id = category::where('CategoryName','like','%'.$request->category.'%')->first();
         DB::table('flowers')->where('id','=',$request->id)->update(
             ['Category_id' => $category_id->id, 'Flowers_Name' => $request->Flowers_Name,'Flowers_Price'=>$request->flowerprice,'description'=>$request->description,'Flowers_Image'=>strtolower(Str::replaceLast(' ','',$request->category)).'/'.$image->getClientOriginalName()]
+        );
+        $category = category::all();
+
+        return redirect('/')->with(['category'=>$category]);
+    }
+
+    public function tambah_update_category(Request $request){
+        
+        $validator = Validator::make($request->all(), [
+            'CategoryName' => 'required|unique:categoryflowers|min:5',
+            'category_image' => 'required'
+        ]);
+        
+        if ($validator->fails()) {
+            return redirect('/updatecategory/'.$request->id)
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $image = $request->file('category_image');
+        $image->move(public_path('asset/'.strtolower(Str::replaceLast(' ','',$request->CategoryName))),$image->getClientOriginalName());
+        $category_id = category::where('CategoryName','like','%'.$request->category.'%')->first();
+        DB::table('categoryflowers')->where('id','=',$request->id)->update(
+            ['id' => $category_id->id, 'CategoryName' => $request->CategoryName,'CategoryImage'=>strtolower(Str::replaceLast(' ','',$request->CategoryName)).'/'.$image->getClientOriginalName()]
         );
         $category = category::all();
 
