@@ -118,10 +118,10 @@
                   Categories
                 </a>
                 <div class="dropdown-menu" style="position: absolute;" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Blossom box</a>
-                  <a class="dropdown-item" href="#">Bouquet</a>
-                  <a class="dropdown-item" href="#">Fresh flower</a>
-                  <a class="dropdown-item" href="#">Vase</a>
+                  <a class="dropdown-item" href="/flower/4">Blossom box</a>
+                  <a class="dropdown-item" href="/flower/1">Bouquet</a>
+                  <a class="dropdown-item" href="/flower/3">Fresh flower</a>
+                  <a class="dropdown-item" href="/flower/2">Vase</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">Home</a>
                 </div>

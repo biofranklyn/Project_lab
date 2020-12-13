@@ -30,7 +30,7 @@
                 <div>
                     <div class="tulisan text-center">
                         <h1 class="text mt-3">
-                            {{$category->CategoryName}}
+                            {{-- {{$category->CategoryName}} --}}
                         </h1>
                     </div>
                     <div style="margin-top: 20px">

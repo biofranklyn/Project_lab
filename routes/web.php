@@ -13,16 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/register',function() {
-    return view('register');
-});
-
 Route::get('/login',function(){
     return view('login');
-});
-
-Route::get('/add',function(){
-    return view('addFlower');
 });
 
 Route::get('/transaction',function(){
@@ -37,13 +29,35 @@ Route::get('/updatecategory/{id}','MainController@UpdateCategory');
 Route::post('/updateCategory/homepage', 'MainController@tambah_update_category');
 
 Route::get('/transactionDetail/{id}','MainController@muncul_td');
+
 Route::get('/detailCust/{id}','MainController@muncul_detail_cust');
+
 Route::get('/cart/{id}','MainController@muncul_cart');
+
 Route::get('/viewManager/{id}','MainController@muncul_flower_update');
+
 Route::get('/managecategory','MainController@atur_categori');
-Route::get('/update/{id}','MainController@muncul_update');
+
+
 Route::get('/detail/{id}','MainController@muncul_detail');
+
 Route::get('/','MainController@muncul_homepage');
+
 Route::get('/flower/{id}', 'MainController@muncul_flower');
+
+
+Route::get('/add',function(){
+    return view('addFlower');
+});
 Route::post('/add/flower', 'MainController@tambah_flower');
+
+
+Route::get('/update/{id}','MainController@muncul_update');
 Route::post('/update/flower', 'MainController@tambah_update_flower');
+
+
+Route::get('/register',function() {
+    return view('register');
+});
+Route::post('/reg','MainController@register');
+
