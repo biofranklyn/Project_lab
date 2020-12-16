@@ -25,23 +25,24 @@ Route::get('/changepw',function(){
     return view('changePassword');
 });
 
+Route::get('/flower/search','MainController@muncul_search');
+
+Route::get('/loginauth','MainController@login');
+Route::get('/logout','MainController@logout');
+
 Route::get('/updatecategory/{id}','MainController@UpdateCategory');
 Route::post('/updateCategory/homepage', 'MainController@tambah_update_category');
 
 Route::get('/transactionDetail/{id}','MainController@muncul_td');
 
-Route::get('/detailCust/{id}','MainController@muncul_detail_cust');
-
 Route::get('/cart/{id}','MainController@muncul_cart');
 
-Route::get('/viewManager/{id}','MainController@muncul_flower_update');
-
 Route::get('/managecategory','MainController@atur_categori');
-
 
 Route::get('/detail/{id}','MainController@muncul_detail');
 
 Route::get('/','MainController@muncul_homepage');
+Route::get('/hapus/{id}','MainController@hapus_category');
 
 Route::get('/flower/{id}', 'MainController@muncul_flower');
 
@@ -54,7 +55,7 @@ Route::post('/add/flower', 'MainController@tambah_flower');
 
 Route::get('/update/{id}','MainController@muncul_update');
 Route::post('/update/flower', 'MainController@tambah_update_flower');
-
+Route::get('/flower/hapus/{id}','MainController@hapus');
 
 Route::get('/register',function() {
     return view('register');

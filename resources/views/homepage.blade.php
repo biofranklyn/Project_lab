@@ -39,7 +39,7 @@
                                 <a href="/flower/{{$categorysatuan->id}}">
                                         <img class="img" src="{{asset('asset/'.$categorysatuan->CategoryImage ) }}" alt="{{$categorysatuan->CategoryImage }}">
                                         <p class="text mt-3">{{$categorysatuan->CategoryName}}</p>
-                                 </a>
+                                 </a>                                
                             </div>
                         @endforeach
                     </div>    

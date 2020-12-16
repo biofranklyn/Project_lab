@@ -17,5 +17,11 @@ class DatabaseSeeder extends Seeder
         ->namespace('Database\Seeds') // <---------
         ->group(base_path('Database\seeds\Category.php'));
        $this->call(Category::class);
+
+       Route::prefix('seeds')
+        ->middleware('seeds')
+        ->namespace('Database\Seeds') // <---------
+        ->group(base_path('Database\seeds\AdminSeeder.php'));
+       $this->call(AdminSeeder::class);
     }
 }

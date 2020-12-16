@@ -123,9 +123,40 @@
                   <a class="dropdown-item" href="/flower/3">Fresh flower</a>
                   <a class="dropdown-item" href="/flower/2">Vase</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Home</a>
+                  <a class="dropdown-item" href="/">Home</a>
                 </div>
             </li> 
+            
+            @if (Auth::check())
+                @if (Auth::user()->isAdmin == 0)
+                    <li class="nav-item dropdown"> 
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        User
+                        </a>
+                        <div class="dropdown-menu" style="position: absolute;" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/transaction">Transaction history</a>
+                        <a class="dropdown-item" href="#">My cart</a>
+                        <a class="dropdown-item" href="/changepw">change password</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">logout</a>
+                        </div>
+                    </li>
+                    @else
+                    <li class="nav-item dropdown"> 
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Manager
+                        </a>
+                        <div class="dropdown-menu" style="position: absolute;" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/add">Add flower</a>
+                        <a class="dropdown-item" href="/managecategory">Manage Categories</a>
+                        <a class="dropdown-item" href="/changepw">change password</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">logout</a>
+                        </div>
+                    </li>
+                @endif
+
+            @else
             <li>
                 <div class="login">
                     <a href="/login">
@@ -140,9 +171,10 @@
                     <span><a href="/register" class="register">Register</a></span>
                 </div>
             </li>
+            @endif
             <li>
                 <div class="date ml-0">
-                    <span>Buat tanggal</span>
+                    <span>{{Carbon\Carbon::now()->isoFormat('ddd, D MMMM Y')}}</span>
                 </div>
             </li>
         </ul>

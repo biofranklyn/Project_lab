@@ -30,17 +30,22 @@
                 <div>
                     <div class="tulisan text-center">
                         <h1 class="text mt-3">
-                            {{-- {{$category->CategoryName}} --}}
+                            {{$category->CategoryName}}
                         </h1>
                     </div>
+                    
+                    <form action="/flower/search" method="GET">
+                        @csrf
                     <div style="margin-top: 20px">
                         <label for="category" class="col-sm-2 col-form-label"></label>
                         <select name="category" id="category" style="margin-left: 15px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; padding: 10px 20px; border: none; border-radius: 5px" required>
                             <option value="Blossom Box" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"> Name</option>
                             <option value="Bouquet" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Price</option>
                         </select>
-                        <input type="search" placeholder="Search" style="border: none; padding: 9px 20px; border-radius: 5px">
-                        <button type="submit" style="padding: 9px 13px; border: none; border-radius: 5px; background-color: #3d7ea6; color: white; margin-left: 15px">Search</button>
+                            <input type="hidden" value='{{$category->id}}' name="id">
+                            <input type="search" placeholder="Search" style="border: none; padding: 9px 20px; border-radius: 5px" name="search">
+                            <button type="submit" style="padding: 9px 13px; border: none; border-radius: 5px; background-color: #3d7ea6; color: white; margin-left: 15px">Search</button>
+                        </form>
                     </div>
                     @if (count($flowers) > 0 )
                     @foreach ($flowers->chunk(4) as $flowerempat)
@@ -52,6 +57,10 @@
                                         <p class="text mt-3">{{$flowersatuan->Flowers_Name}}</p>
                                         <p class="text mt-n2" style="color: #f0a500">Rp.{{$flowersatuan->Flowers_Price}}</p>
                                  </a>
+                                 @if (Auth::check() && Auth::user()->isAdmin == 1)
+                                    <a href="/flower/hapus/{{ $flowersatuan->id }}"class="btn btn-primary" style="font-size: 11px">Delete Flower</a>
+                                    <a href="/update/{{$flowersatuan->id}}" class="btn btn-primary" style="font-size: 11px">Update Flower</a>
+                                 @endif
                             </div>
                         @endforeach
                     </div>    

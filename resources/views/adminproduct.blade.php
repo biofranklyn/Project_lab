@@ -43,8 +43,8 @@
                             <div class="col-2 content2 py-2 px-0 mx-1 text-center ">
                                 <img class="img" src="{{asset('asset/'.$flowersatuan->CategoryImage ) }}" alt="{{$flowersatuan->Flowers_Image }}">
                                 <p class="text mt-3">{{$flowersatuan->CategoryName}}</p>
-                                <input class="btn btn-primary" type="submit" value="Delete Category" style="font-size: 11px">
-                                <input class="tombol btn btn-primary" type="submit" value="Update Category" style="font-size: 11px">
+                                <a href="/flower/hapus/{{ $flowersatuan->Category_id }}"class="btn btn-primary" style="font-size: 11px">Delete Category</a>
+                                <a href="/updatecategory/{{$flowersatuan->id}}" class="tombol btn btn-primary" style="font-size: 11px">Update Category</a>
                             </div>
                         @endforeach
                     </div>    
