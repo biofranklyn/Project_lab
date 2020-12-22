@@ -15,10 +15,15 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->string('Flower_id');
+            $table->string('Flowers_Image');
             $table->string('Flowers_Name');
+            $table->string('Flowers_Price');
             $table->string('Subtotal');
             $table->string('Quantity');
-            $table->string('Flowers_Image');
+            $table->date("Date");
+            $table->string('transactionTotal');
+            $table->string('User_id');
             $table->timestamps();
         });
     }

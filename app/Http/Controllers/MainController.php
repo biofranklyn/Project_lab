@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\category;
 use App\flowers;
+use App\shoping;
+use App\transaction;
+use App\User;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\cookie;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -19,7 +23,7 @@ class MainController extends Controller
     }
 
     public function muncul_flower($id){
-        $flower = flowers::where('Category_id',$id)->get();
+        $flower = flowers::where('Category_id',$id)->paginate(8);
         $category = category::where('id',$id)->first();
         return view ('flower',  ['flowers'=>$flower, 'category'=>$category]);
     }
@@ -50,15 +54,14 @@ class MainController extends Controller
     }
 
     public function muncul_td($id){
-        $flower = flowers::where('id', $id )->first();
-        return view ('transactionDetail', ['flowers'=>$flower]);
+        $transaction = transaction::where('User_id',$id)->get();
+        return view ('transactionDetail', ['transaction'=>$transaction]);
     }
 
     function muncul_search(Request $request){
         $flower = flowers::where('Flowers_Name', 'LIKE', '%'. $request->search.'%'
-        )->where('Category_id', '=', $request->id)->get();
+        )->where('Category_id', '=', $request->id)->paginate(8);
         $category = category::where('id',$request->id)->first();
-        
         return view('flower', ['flowers'=> $flower, 'category'=>$category]);
     }
 
@@ -68,7 +71,7 @@ class MainController extends Controller
     }
 
     public function hapus_category($id){
-        DB::table('categoryflowers')->where('id',$id)->delete();
+        DB::table('flowers')->where('Category_id',$id)->delete();
         return redirect('/');
     }
 
@@ -149,6 +152,65 @@ class MainController extends Controller
         return redirect('/')->with(['category'=>$category]);
     }
 
+    function cart(Request $request, $User_id, $flower_id )
+    {
+        $flowers = flowers::where('id',$flower_id)->first();
+        $users = User::where('id',$User_id)->first();
+        $validation = Validator::make($request->all(),[    
+            'qty'=>'required|min:1'
+            
+            
+        ]);
+        if ($validation->fails()) {
+            return redirect('/detail/'.$request->id)
+                ->withErrors($validation)
+                ->withInput();
+        }
+        
+        DB::table('shopingcart')->insert(
+        [
+            'Quantity'=>$request->qty,
+            'Flowers_Image'=>$flowers->Flowers_Image,
+            'Flowers_Name'=>$flowers->Flowers_Name,
+            'Flowers_Price'=>$flowers->Flowers_Price,
+            'User_id'=>$users->id,
+            'flower_id'=>$flowers->id,
+            'Subtotal'=>$flowers->Flowers_Price * $request->qty
+            
+        ]);
+        
+       return redirect('/cart/'.$flowers->id);
+    }
+
+    function addtransaction(Request $request, $User_id)
+    {
+
+        $carts = shoping::where('User_id',$User_id)->get();
+        foreach ($carts as $cart) {
+        
+        $transaction = new transaction;
+        $transaction->Flower_id = $cart->id;
+        $transaction->Date = Carbon::now();;
+        $transaction->transactionTotal = 0;
+        
+        foreach ($carts as $total) {
+
+            $transaction->transactionTotal += $total->Subtotal;
+        }
+        
+        $transaction->User_id = $User_id;
+        $transaction->Flowers_Name = $cart->Flowers_Name;
+        $transaction->Flowers_Price = $cart->Flowers_Price;
+        $transaction->Flowers_Image = $cart->Flowers_Image;
+        $transaction->Quantity = $cart->Quantity;
+        $transaction->Subtotal = $cart->Subtotal;
+        $transaction->save();
+        $cart->delete(); 
+    }
+
+       return redirect('/');
+    }
+
 
     function register(Request $request)
     {
@@ -193,7 +255,11 @@ class MainController extends Controller
                 ->withInput();
         }
 
-        if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
+        $remember = $request->remember ? true : false;
+        if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password], $remember)){
+            $minute = 10080;
+            $rememberme = Auth::getRecallerName();
+            cookie::queue($rememberme, cookie::get($rememberme), $minute );
             return redirect('/');
         }
 

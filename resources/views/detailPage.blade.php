@@ -33,12 +33,19 @@
                             </div>
                             <div class="col-3 py-2 px-0 text-center ">
                                 <p class="text mt-3">{{$flowers->Flowers_Name}}</p>
-                                <p class="text mt-n2" style="color: #f0a500">Rp. {{$flowers->Flowers_Price}}</p>
+                                <p class="text mt-n2" style="color: #8a610b">Rp. {{$flowers->Flowers_Price}}</p>
                                 <p class="text">{{$flowers->description}}</p>
+                                
                         @if (Auth::check() && Auth::user()->isAdmin == 0)
-                            <label for="qty">Quantity:</label>
-                            <input class="tombol1" type="number" name="qty" style="border-radius: 2px; padding: 5px; width: 80px; margin-left: 50px"> <br>
+                        <form action="/cart/{{Auth::user()->id}}/{{$flowers->id}}" method="POST">
+                            @csrf
+                        <div class="quantity">
+                            <span>Quantity : {{$flowers->Quantity}}</span>
+                            <input class="tombol1" type="number" name="qty" style="border-radius: 2px; padding: 5px; width: 80px; margin-left: 50px"> 
+                            <br>
                             <input class="tombol btn btn-primary py-2 mt-2" type="submit" value="Add to Cart">
+                        </div>
+                        </form>
                         @endif
                             </div>
                     </div>

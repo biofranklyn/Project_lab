@@ -18,6 +18,7 @@ class CreateShopingcartTable extends Migration
             $table->string('User_id');
             $table->string('flower_id');
             $table->string('Flowers_Name');
+            $table->string('Flowers_Price');
             $table->string('Subtotal');
             $table->string('Quantity');
             $table->string('Flowers_Image');

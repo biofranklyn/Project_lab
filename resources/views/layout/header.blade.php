@@ -135,7 +135,7 @@
                         </a>
                         <div class="dropdown-menu" style="position: absolute;" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/transaction">Transaction history</a>
-                        <a class="dropdown-item" href="#">My cart</a>
+                        <a class="dropdown-item" href="/cart/1">My cart</a>
                         <a class="dropdown-item" href="/changepw">change password</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/logout">logout</a>

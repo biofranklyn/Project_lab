@@ -25,17 +25,23 @@ Route::get('/changepw',function(){
     return view('changePassword');
 });
 
+Route::get('/login',function(){
+    return view('login');
+});
+Route::get('/loginauth','MainController@login');
+
 Route::get('/flower/search','MainController@muncul_search');
 
-Route::get('/loginauth','MainController@login');
 Route::get('/logout','MainController@logout');
 
 Route::get('/updatecategory/{id}','MainController@UpdateCategory');
 Route::post('/updateCategory/homepage', 'MainController@tambah_update_category');
 
 Route::get('/transactionDetail/{id}','MainController@muncul_td');
+Route::post('/trDetail/{userid}', 'MainController@addtransaction');
 
 Route::get('/cart/{id}','MainController@muncul_cart');
+Route::post('/cart/{User_id}/{flower_id}', 'MainController@cart');
 
 Route::get('/managecategory','MainController@atur_categori');
 
@@ -52,6 +58,7 @@ Route::get('/add',function(){
 });
 Route::post('/add/flower', 'MainController@tambah_flower');
 
+Route::get('/hapus/{id}','MainController@hapus_category');
 
 Route::get('/update/{id}','MainController@muncul_update');
 Route::post('/update/flower', 'MainController@tambah_update_flower');
