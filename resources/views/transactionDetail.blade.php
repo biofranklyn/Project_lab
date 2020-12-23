@@ -19,8 +19,8 @@
             <div>
                 <div>
                   <div class="tulisan text-center" style="margin-top: 20px">
-                    <h1>Your Transaction History</h1>
-                </div>
+                    <h1>Your Transaction at {{Carbon\Carbon::now()->isoFormat('D MMMM Y')}}</h1>
+                  </div>
                     <div class="mt-5 mx-5 d-flex justify-content-center">
                       <div class="content2 text-center">
                         
